@@ -10,14 +10,30 @@ namespace Scrabble
     class Jeu
     {
         /// <summary>
-        /// Mélange Des piles
+        /// Main
         /// </summary>
         /// <param name="pile1">Première pile</param>
         /// <param name="pile2">Deuxième pile</param>
         /// <returns>Retourne la pile mélangée</returns>
         static void Main(string[] args)
         {
-            string exempleJoueur = File.ReadText(@"C:\Users\PC1\Documents\Esilv\- S3\Algorithmique & POO\Jeu\Jeu\Joueurs.txt");// renvoie un string de toutes les informations texte trouvée dans le fichier
+            #region ExempleJoueur
+            StreamReader file = new StreamReader("Joueurs.txt");
+            Joueur Exemple = new Joueur(file);
+            Exemple.toString();
+            #endregion
+
+
+            Plateau Ex = new Plateau();
+            Dictionnaire E = new Dictionnaire("français","Francais.txt");
+
+            Sac_Jetons A = new Sac_Jetons("Jetons.txt");
+
+        }
+
+        static void BazarASupprimer()
+        {
+            string exempleJoueur = File.ReadAllText(@"C:\Users\PC1\Documents\Esilv\- S3\Algorithmique & POO\Jeu\Jeu\Joueurs.txt");// renvoie un string de toutes les informations texte trouvée dans le fichier
             File.WriteAllText(@"C:\Users\PC1\Documents\Esilv\- S3\Algorithmique & POO\Jeu\Jeu\Nouveau document texte.txt", "hello");
             Console.WriteLine(exempleJoueur + "\n");
 
@@ -39,20 +55,7 @@ namespace Scrabble
             //Image Hello = Image.FromFile("SampImag.jpg");
             //Image img = new Image();
             //img.ImageUrl = dr["photo"];
-
         }
-
-        /* private void ImageExampleForm_Paint(object sender, PaintEventArgs e)
-         {
-             // Create image.
-             //Image newImage = Image.FromFile("SampImag.jpg");
-
-             // Create Point for upper-left corner of image.
-             Point ulCorner = new Point(100, 100);
-
-             // Draw image to screen.
-             //e.Graphics.DrawImage(newImage, ulCorner);
-         }*/
     }
 }
-}
+
