@@ -47,18 +47,22 @@ namespace Scrabble
                             motTrouvés.Add(TabContenuLigne[i]);
                         }
                     }
-                    else //Lecture de la troisième ligne du fichier contenant la main courante du joueur
+                    else if(a==2)//Lecture de la troisième ligne du fichier contenant la main courante du joueur
                     {
                         mainCourante = new List<Jeton>();
-                        for (int i = 0; i < TabContenuLigne.Length; i++)
+                        KeyValuePair<char, Jeton> kv;
+                        for (int i = 0; i< TabContenuLigne.Length; i++)
                         {
-                            /*char lettre = Convert.ToChar(TabContenuLigne[i]);
+                            char lettre = Convert.ToChar(TabContenuLigne[i]);
+                            Console.WriteLine(lettre);
                             Sac_Jetons sac = new Sac_Jetons("Jetons.txt");
                             SortedList<char, Jeton> s = sac.Sac;
-                            s.TryGetValue(lettre);
-                            Jeton J = new Jeton()
-                            mainCourante.Add(); */
+                            kv = s.ElementAt(lettre);
+                            Jeton J = s.ElementAt(lettre).Value;
+                            J.ToString();
+                            mainCourante.Add(J);
                         }
+
                     }
 
                 }
@@ -81,7 +85,7 @@ namespace Scrabble
             string description = $"Le joueur {nom} a actuellement {score} points, a posé {motTrouvés.Count} mots, et a actuellement dans sa main courante :\n";
             for(int i =0; i< mainCourante.Count; i++)
             {
-                description += mainCourante[i]+";";
+                description += mainCourante[i].Lettre +";";
             }
             Console.WriteLine(description);
             return description;

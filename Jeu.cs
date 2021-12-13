@@ -19,15 +19,18 @@ namespace Scrabble
         {
             #region ExempleJoueur
             StreamReader file = new StreamReader("Joueurs.txt");
-            Joueur Exemple = new Joueur(file);
-            Exemple.toString();
+            Joueur JoueurExemple = new Joueur(file);
+            JoueurExemple.toString();
             #endregion
 
 
-            Plateau Ex = new Plateau();
-            Dictionnaire E = new Dictionnaire("français","Francais.txt");
+            Plateau PlateauExemple = new Plateau();
+            Dictionnaire DictionnaireFrancais = new Dictionnaire("français","Francais.txt");
 
             Sac_Jetons A = new Sac_Jetons("Jetons.txt");
+            SortedList<char, Jeton> s = A.Sac;
+            Jeton J = s.ElementAt('A').Value;
+            J.ToString();
 
         }
 
